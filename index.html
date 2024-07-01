@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UKT Selector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0504043d;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"], input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Golongan UKT</h2>
+        <label for="gaji">Gaji Orang Tua:</label>
+        <input type="number" id="gaji" name="gaji" required>
+
+        <label for="kendaraan">Jumlah Kendaraan:</label>
+        <input type="number" id="kendaraan" name="kendaraan" required>
+
+        <label for="tanggungan">Tanggungan Orang Tua:</label>
+        <input type="number" id="tanggungan" name="tanggungan" required>
+
+        <label for="listrik">Listrik:</label>
+        <input type="text" id="listrik" name="listrik" required>
+
+        <label>
+            <input type="checkbox" id="prestasi" name="prestasi">
+            Punya Prestasi
+        </label>
+
+        <button onclick="calculateUKT()">Golongan UKT Anda</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculateUKT() {
+            // Get input values
+            const gaji = document.getElementById('gaji').value;
+            const kendaraan = document.getElementById('kendaraan').value;
+            const tanggungan = document.getElementById('tanggungan').value;
+            const listrik = document.getElementById('listrik').value;
+            const prestasi = document.getElementById('prestasi').checked;
+
+            // UKT calculation logic (example)
+            let uktCategory = 10; // Example category
+            let uktAmount = 9999999999999; // Example amount
+
+            // Display the result
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `<h3>Anda mendapat golongan UKT ${uktCategory} senilai RP${uktAmount.toLocaleString('id-ID')}</h3>`;
+        }
+    </script>
+</body>
+</html>
